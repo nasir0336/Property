@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = https://muhammadnasir0336@yahoo.com:MNasir5@github.com/nasir0336/property.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\AlgoliaSearch;
+use App\Model\Currency;
+use App\Model\Listing;
+use App\Model\UserProfile;
+use App\SocialProvider;
+use App\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
+class mycontroller extends Controller
+{
+	public function view()
+	{
+		//return view('newfile');
+		echo "nasir";
+		echo "yasir"
+	}
+}
