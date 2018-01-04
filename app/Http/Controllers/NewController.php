@@ -2,6 +2,7 @@
  namespace App\Http\Controllers;
 
  use Illuminate\Http\Request;
+ use App\Model\LandList;
 
  class NewController extends Controller
  {
@@ -29,10 +30,7 @@
 	{
 		return view('house_list');
 	}
-	public function landList()
-	{
-		return view('land_list');
-	}
+
 	public function shopeList()
 	{
 		return view('shope_list');
@@ -61,4 +59,29 @@
 	{
 		return view('rules');
 	}
+	 public function admin()
+	 {
+		 return view('admin');
+	 }
+	 public function landList2()
+	 {
+		 //$landlistdetail = new LandList()
+		 //Land
+		 $lands = LandList::all();
+
+		 return view('land_list', ['name' => $lands ] );
+
+	 }
+	 public function deleteRecord($id)
+	 {
+	 	//dd($id);
+
+		 $record = LandList::find( $id);
+		 $record->delete();
+		 $lands = LandList::all();
+		 return view('land_list', ['name' => $lands ] );
+
+	 }
+
+
  }

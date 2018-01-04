@@ -16,7 +16,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function(){
 
 	Route::get('/house','NewController@houseList');
-	Route::get('/land','NewController@landList');
+	Route::get('/land','NewController@landList2')->name('land');
 	Route::get('/office','NewController@officeList');
 });
 
@@ -31,9 +31,13 @@ Route::middleware('auth')->group(function(){
  Route::get('/contact','NewController@Contact');
  Route::get('/about','NewController@About');
  Route::get('/home','NewController@Home');
- Route::get('/rules','NewController@ruleList');
+ Route::get('/admin','NewController@admin');
 
+ //Route::get('/land','NewController@landList2');
+ Route::get('/rules','NewController@ruleList');
+ Route::get('/delete/{id}' ,'NewController@deleteRecord')->name('delete');
+ Route::post('/landlist','HomeController@store')->name('record');
  Auth::routes();
 
  Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/1', 'HomeController@home');
+ Route::get('/home/1', 'HomeController@home');
