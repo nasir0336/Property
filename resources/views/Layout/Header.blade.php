@@ -8,7 +8,7 @@
             <ul class="menu">
                 <li class="menu-text large" >Property Marketing</li>
 
-                <li><a href="{{ url('land') }}">Land</a></li>
+                <li><a href="{{ route('land') }}">Land</a></li>
                 <li><a href="{{ url('house') }}">House</a></li>
 
             </ul>

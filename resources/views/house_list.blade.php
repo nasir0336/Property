@@ -7,30 +7,21 @@
         <hr>
     </div>
     <div class="row small-up-2 large-up-4">
+    @foreach($houses as $house)
+
+
         <div class="column">
-            <img class="thumbnail" src="https://placehold.it/300x400">
-            <h5>Nulla At Nulla Justo, Eget</h5>
-            <p>$400</p>
+            <img class="thumbnail" src="{{ asset('images'.'/'.$house->imageurl) }}">
+            <h5>{{ $house->name }}</h5>
+            <textarea rows="2" placeholder="Discription" readonly="true">{{ $house->discription }}</textarea>
             <a href="#" class="button expanded">Buy</a>
         </div>
-        <div class="column">
-            <img class="thumbnail" src="https://placehold.it/300x400">
-            <h5>Nulla At Nulla Justo, Eget</h5>
-            <p>$400</p>
-            <a href="#" class="button expanded">Buy</a>
-        </div>
-        <div class="column">
-            <img class="thumbnail" src="https://placehold.it/300x400">
-            <h5>Nulla At Nulla Justo, Eget</h5>
-            <p>$400</p>
-            <a href="#" class="button expanded">Buy</a>
-        </div>
-        <div class="column">
-            <img class="thumbnail" src="https://placehold.it/300x400">
-            <h5>Nulla At Nulla Justo, Eget</h5>
-            <p>$400</p>
-            <a href="#" class="button expanded">Buy</a>
-        </div>
+
+
+
+
+
+    @endforeach
     </div>
 
 @endsection

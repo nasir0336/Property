@@ -14,12 +14,14 @@ class CreateLandlistTable extends Migration
     public function up()
     {
         Schema::create('landlist', function (Blueprint $table) {
-            $table->increments('id');
-	        $table->string('name');
-	        $table->string('discription');
+	    $table->increments('id');
+	    $table->string('name');
+	    $table->string('discription');
+	    $table->string('imageurl');
 
-            $table->timestamps();
-        });
+	    $table->timestamps();
+    });
+
 
     }
 

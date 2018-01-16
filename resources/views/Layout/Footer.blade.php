@@ -14,7 +14,7 @@
         </div>
         <div class="large-3 large-offset-2 columns">
             <ul class="menu vertical">
-                <li><a href="{{ url('land') }}">Land</a></li>
+                <li><a href="{{ route('land') }}">Land</a></li>
                 <li><a href="{{ url('house') }}">House</a></li>
                 <li><a href="{{ url('shope') }}">Shope</a></li>
                 <li><a href="{{ url('plaza') }}">Plaza</a></li>

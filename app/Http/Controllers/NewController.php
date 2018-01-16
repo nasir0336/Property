@@ -28,7 +28,11 @@
 	}
 	public function houseList()
 	{
-		return view('house_list');
+		$houses = LandList::orderBy('updated_at', 'desc')->take(4)->get();
+
+
+		return view('house_list', ['houses' => $houses ] );
+
 	}
 
 	public function shopeList()
@@ -51,10 +55,7 @@
 	{
 		return view('about_us');
 	}
-	public function home()
-	{
-		return view('home');
-	}
+
 	public function ruleList()
 	{
 		return view('rules');
@@ -65,23 +66,41 @@
 	 }
 	 public function landList2()
 	 {
-		 //$landlistdetail = new LandList()
-		 //Land
-		 $lands = LandList::all();
-
+		 $lands = LandList::paginate(9);
 		 return view('land_list', ['name' => $lands ] );
+	 }
+	 public function landView()
+	 {
+		 $lands = LandList::paginate(9);
+		 return view('land-view', ['lands' => $lands ] );
+	 }
+	 public function imagePath()
+	 {
 
+		 $path = $request->file('imagepath')->store('avatars');
+		 //dd($path);
+		 //return $path;
 	 }
 	 public function deleteRecord($id)
 	 {
-	 	//dd($id);
-
 		 $record = LandList::find( $id);
 		 $record->delete();
-		 $lands = LandList::all();
-		 return view('land_list', ['name' => $lands ] );
-
+		 return redirect("/Admin/land/view");
+		// $lands = LandList::paginate(9);
+		// return view('land-view', ['lands' => $lands ] );
 	 }
-
+	 public function addLand()
+	 {
+		 return view("landlist");
+	 }
+	 public function design()
+	 {return view("design");
+	 }
+	 public function updateRecord($id)
+	 {
+		// $records = LandList::find( $id);
+		 $record = LandList::where('id', $id)->first();
+		 return view("landlist", ['record' => $record ]);
+	 }
 
  }

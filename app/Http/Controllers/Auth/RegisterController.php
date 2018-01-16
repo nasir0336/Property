@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -65,7 +66,11 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => $data['password'],
         ]);
+
+
+	    $role = Role::create(['name' => 'writer']);
+	    $permission = Permission::create(['name' => 'edit articles']);
     }
 }

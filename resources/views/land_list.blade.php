@@ -17,16 +17,23 @@
                 @endif
                 <div class="media-object">
                 <div class="media-object-section">
-                    <img class="thumbnail" src="https://placehold.it/100x100">
+                    <img class="thumbnail" src="{{ asset('images'.'/'.$land->imageurl) }}">
                 </div>
                     <div class="media-object-section">
                          <h5>{{ $land->name }}</h5>
-                         <p>{{ $land->discription }}</p>
-                         <a href="/delete/{{ $land->id }}">Delete</a>
+
+                        <textarea rows="2" placeholder="Discription" readonly="true">{{ $land->discription }}</textarea>
+
+
                     </div>
             </div>
         @php $a++; @endphp
         </div>
     @endforeach
+
     </div>
+
+    {{ $name->links() }}
+
+
 @endsection
