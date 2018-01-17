@@ -10,10 +10,7 @@
 |
 */
 
-Route::get('/', function () {
-
-	return view('welcome');
-});
+ Route::get('/', 'NewController@home');
 
 
 	Route::get('/house','NewController@houseList');
@@ -21,10 +18,19 @@ Route::get('/', function () {
 	Route::get('/office','NewController@officeList');
 
 
-//Route::get('/my/file','NewController@view');
-//Route::get('/new/template','NewController@Template');
+
 //admin
- Route::get('/Admin/land/view','NewController@landView')->name('landview');
+ Route::get('/Admin/Land','NewController@landView')->name('landview');
+ Route::post('/Admin/UpdateLand/{id}' ,'HomeController@updateLand')->name('UpdateLand');
+ Route::post('/Admin/CreateLand' ,'HomeController@createLand')->name('CreateLand');
+ Route::get('/Admin/AddLand', 'NewController@addLand')->name('addland');
+
+ Route::get('/delete/{id}' ,'NewController@deleteRecord')->name('delete');
+ Route::get('/Admin/UpdateLand/{id}' ,'NewController@updateRecord')->name('update');
+
+
+
+
 
 
  Route::get('/header','NewController@Header');
@@ -46,11 +52,9 @@ Route::get('/', function () {
 
  //Route::get('/land','NewController@landList2');
  Route::get('/rules','NewController@ruleList');
- Route::get('/delete/{id}' ,'NewController@deleteRecord')->name('delete');
- Route::get('/update/{id}' ,'NewController@updateRecord')->name('update');
+
  //Route::get('/update' ,'HomeController@updateRecord')->name('update');
- Route::post('/Admin/updateLand/{id}' ,'HomeController@updateLand')->name('updateLand');
- Route::post('/Admin/createLand' ,'HomeController@createLand')->name('createLand');
+
  Auth::routes();
 
 Route::get('fileUpload', function () {
@@ -61,7 +65,7 @@ Route::get('fileUpload', function () {
  Route::post('fileUpload', ['as'=>'fileUpload','uses'=>'HomeController@fileUpload']);
 
  Route::get('/home', 'HomeController@index');
- Route::get('/Admin/add/land', 'NewController@addLand')->name('addland');
+
 Route::get('/design', 'NewController@design')->name('design');
 Route::resource('users', 'UserController');
 
@@ -71,6 +75,7 @@ Route::resource('permissions', 'PermissionController');
 
 Route::resource('posts', 'PostController');
 
+Route::get('/SearchCity/{city}','NewController@searchCity')->name('search_city');
 Auth::routes();
 
 

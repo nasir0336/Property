@@ -3,7 +3,7 @@
 
  use Illuminate\Http\Request;
  use App\Model\LandList;
-
+ use App\Model\information;
  class NewController extends Controller
  {
 	public function view()
@@ -72,7 +72,13 @@
 	 public function landView()
 	 {
 		 $lands = LandList::paginate(9);
+
 		 return view('land-view', ['lands' => $lands ] );
+	 }
+	 public function home()
+	 {
+		 $lands = LandList::paginate(9);
+		 return view('/welcome', ['lands' => $lands ] );
 	 }
 	 public function imagePath()
 	 {
@@ -85,7 +91,7 @@
 	 {
 		 $record = LandList::find( $id);
 		 $record->delete();
-		 return redirect("/Admin/land/view");
+		 return redirect("/Admin/Land");
 		// $lands = LandList::paginate(9);
 		// return view('land-view', ['lands' => $lands ] );
 	 }
@@ -101,6 +107,12 @@
 		// $records = LandList::find( $id);
 		 $record = LandList::where('id', $id)->first();
 		 return view("landlist", ['record' => $record ]);
+	 }
+	 public function searchCity($city)
+	 {
+	 	 $cities = LandList::where('city',$city)->paginate(6);
+
+		 return view("welcome", ['cities' => $cities ]);
 	 }
 
  }

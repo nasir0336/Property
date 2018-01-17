@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\User;
@@ -70,7 +71,7 @@ class RegisterController extends Controller
         ]);
 
 
-	    $role = Role::create(['name' => 'writer']);
-	    $permission = Permission::create(['name' => 'edit articles']);
+
+
     }
 }

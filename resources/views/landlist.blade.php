@@ -21,7 +21,8 @@
                         $name= isset($record->name) ? $record->name  : '';
                         $discription= isset($record->discription) ? $record->discription  : '';
                         $imageurl=isset($record->imageurl) ? $record->imageurl  : '';
-                        $route= $id > 0 ? route('updateLand', $id ) : route('createLand');
+                        $city = isset($record->city) ? $record->city  : '';
+                        $route= $id > 0 ? route('UpdateLand', $id ) : route('CreateLand');
                     @endphp
 
                     <form method="post" action="{{ $route }}" enctype="multipart/form-data">
@@ -31,6 +32,20 @@
                                 <label>Name
                                     <input type="text" name="name" value="{{ $name }}" placeholder="Name">
                                 </label>
+                                        <label>City
+                                            <select name="city" value="{{ $city }}" selected="{{ $city }}">
+                                                <option value="Multan">Multan</option>
+                                                <option value="Lahore">Lahore</option>
+                                                <option value="Islamabad">Islamabad</option>
+                                                <option value="Karachi">Karachi</option>
+                                                <option value="Vahari">Vahari</option>
+                                                <option value="Bahawalpur">Bahawalpur</option>
+                                                <option value="Peshawar">Peshawar</option>
+                                                <option value="Mardan">Mardan</option>
+                                                <option value="Sahiwal">Sahiwal</option>
+                                            </select>
+                                        </label>
+
                                 <label>
                                     Discription
                                     <textarea placeholder="Enter Discription" name="discription" >{{$discription}}</textarea>
@@ -46,13 +61,9 @@
                         </div>
                     </form>
 
-
-
-
                 </div>
             </div>
         </div>
-
     </div>
 
     @include('layout/Footer4')

@@ -4,11 +4,7 @@
 
 <!-- page content -->
     <div id="page-content-wrapper" class="toggled">
-
-
         <div class="large-12 columns ">
-
-
             <div class="row column ">
                 <h2>Lands For Sale</h2>
                 <hr>
@@ -28,10 +24,10 @@
                             </div>
                             <div class="media-object-section">
                                 <h5>{{ $land->name }}</h5>
-
+                                <h7>{{ "city: ".$land->city }}</h7>
                                 <textarea rows="2" placeholder="Discription" readonly="true">{{ $land->discription }}</textarea>
                                 <a href=" {{  route('addland') }}">Add</a>
-                                <a href=" /update/{{ $land->id }} ">Update</a>
+                                <a href=" /Admin/UpdateLand/{{ $land->id }} ">Update</a>
                                 <a href="/delete/{{ $land->id }}">Delete</a>
                             </div>
                         </div>
@@ -42,9 +38,6 @@
             </div>
 
             {{ $lands->links() }}
-
-
-
 
 </div>
 

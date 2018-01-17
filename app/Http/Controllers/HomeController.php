@@ -82,23 +82,22 @@ class HomeController extends Controller
 		    return redirect("shope");
 
     }
-	public function createLand(request $request)
+	public function CreateLand(request $request)
 	{
 			$landlist = new LandList();
 			$name = $request->input("name");
 			$discription = $request->input("discription");
 			$fileName = $request->file("filename");
-			$record = self::uploadFile($request, "/images", "filename", array(100,100));
+			$record = self::uploadFile($request, "/images", "filename", array(110,110));
 			$path=$record["icon"];
 			$landlist->name = $name;
 			$landlist->discription = $discription;
 			$landlist->imageurl = $path;
+			$landlist->city = $request->input("city");
 			$landlist->save();
 			return view("landlist");
-
-
 	}
-	public function updateLand(request $request,$id)
+	public function UpdateLand(request $request,$id)
 	{
 		//$landlist = new LandList();
 		$updateLand = LandList::find($id);
@@ -107,20 +106,22 @@ class HomeController extends Controller
 		$fileName = $request->file("filename");
          if($fileName != null )
          {
-	         $record = self::uploadFile($request, "/images", "filename", array(100,100));
+	         $record = self::uploadFile($request, "/images", "filename", array(110,110));
 	         $path=$record["icon"];
 	         $updateLand->name = $name;
 	         $updateLand->discription = $discription;
 	         $updateLand->imageurl = $path;
+	         $updateLand->city = $request->input("city");
 	         $updateLand->save();
-	         return redirect("/Admin/add/land");
+	         return redirect("/Admin/AddLand");
          }
          else
          {
 	         $updateLand->name = $name;
 	         $updateLand->discription = $discription;
+	         $updateLand->city = $request->input("city");
 	         $updateLand->save();
-	         return redirect("/Admin/add/land");
+	         return redirect("/Admin/AddLand");
          }
 
 

@@ -21,7 +21,7 @@
                 </div>
                     <div class="media-object-section">
                          <h5>{{ $land->name }}</h5>
-
+                         <h7>{{ $land->city }}</h7>
                         <textarea rows="2" placeholder="Discription" readonly="true">{{ $land->discription }}</textarea>
 
 
